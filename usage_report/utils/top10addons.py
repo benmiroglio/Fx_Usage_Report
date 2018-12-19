@@ -45,8 +45,8 @@ def top_10_addons_on_date(data, date, topN, period=7, country_list=None):
         submission_date_s3, country, addon_id, name, percent_of_active_users
     """
     addon_filter = (~col('addon.is_system')) & (~col('addon.foreign_install')) & \
-        (~col('addon.addon_id').isin(NON_MOZ_TP)) & (~col('addon.addon_id').like('%@mozilla%')) &\
-        (~col('addon.addon_id').like('%@shield.mozilla%')) &\
+        (~col('addon.addon_id').isin(NON_MOZ_TP)) & (~col('addon.addon_id').like('%@mozilla.org%')) &\
+        (~col('addon.addon_id').like('%@shield.mozilla.org%')) &\
         (~col('addon.addon_id').like('%' + UNIFIED_SEARCH_STR + '%'))
 
     data_all = keep_countries_and_all(data, country_list)
